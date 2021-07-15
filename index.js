@@ -16,7 +16,11 @@ function startGame(){
 }
 
 function renderGame() {
-  cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1]
+  cardsEl.textContent = "Cards: "
+  for (i =0; i < cards.length; i++) {
+    cardsEl.textContent += cards[i] + " "
+  }
+
   if (sum <= 20) {
     message = "Do you want to draw a new card?"
   } else if (sum === 21) {
@@ -34,6 +38,8 @@ function newCard() {
   console.log("Drawing a new card from the deck!")
   let card = getRandomInt()
   sum += card
+  cards.push(card)
+  console.log(cards)
   renderGame()
 }
 
@@ -42,5 +48,4 @@ function getRandomInt(min, max) {
   max = Math.floor(12);
   return Math.floor(Math.random() * (12 - 1) + 1); //The maximum is exclusive and the minimum is inclusive
 }
-
 

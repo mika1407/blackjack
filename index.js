@@ -7,13 +7,20 @@ let isAlive = true
 let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
-//let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.getElementById("cards-el")
 
 function getRandomCard() {
-  return Math.floor( Math.random() * 13 ) + 1
+  // if 1 (ace)  -> return 11
+  // if 11-13 -> return 10
+  let randomNumber = Math.floor( Math.random() * 13 ) + 1
+  if (randomNumber > 10) {
+    return 10
+  } else if (randomNumber === 1){
+    return 11
+  }else {
+    return randomNumber
+  }
 }
-
 
 function startGame(){
   renderGame()
@@ -47,9 +54,5 @@ function newCard() {
   renderGame()
 }
 
-// function getRandomInt(min, max) {
-//   min = Math.ceil(1);
-//   max = Math.floor(12);
-//   return Math.floor(Math.random() * (12 - 1) + 1); //The maximum is exclusive and the minimum is inclusive
-// }
+
 

@@ -1,7 +1,7 @@
-let firstCard = getRandomInt()
-let secondCard = getRandomInt()
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard]
-let sum = firstCard + secondCard
+let sum = firstCard + secondCard 
 let hasBlackJack = false
 let isAlive = true
 let message = ""
@@ -9,6 +9,10 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 //let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.getElementById("cards-el")
+
+function getRandomCard() {
+  return Math.floor( Math.random() * 13 ) + 1
+}
 
 
 function startGame(){
@@ -36,16 +40,16 @@ function renderGame() {
 
 function newCard() {
   console.log("Drawing a new card from the deck!")
-  let card = getRandomInt()
+  let card = getRandomCard()
   sum += card
   cards.push(card)
   console.log(cards)
   renderGame()
 }
 
-function getRandomInt(min, max) {
-  min = Math.ceil(1);
-  max = Math.floor(12);
-  return Math.floor(Math.random() * (12 - 1) + 1); //The maximum is exclusive and the minimum is inclusive
-}
+// function getRandomInt(min, max) {
+//   min = Math.ceil(1);
+//   max = Math.floor(12);
+//   return Math.floor(Math.random() * (12 - 1) + 1); //The maximum is exclusive and the minimum is inclusive
+// }
 
